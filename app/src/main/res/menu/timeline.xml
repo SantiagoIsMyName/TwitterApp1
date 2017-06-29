@@ -1,0 +1,30 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/twitLogo"
+        android:icon="@drawable/twitter_logo_2"
+        android:title="Twitter Logo"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/emptySpace1"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/emptySpace2"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/emptySpace3"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/emptySpace4"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/emptySpace5"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/miCompose"
+        android:icon="@drawable/vector_compose_fab"
+        android:onClick="onComposeAction"
+        android:title="Compose"
+        app:showAsAction="always"></item>
+</menu>
