@@ -3,9 +3,12 @@ package com.codepath.apps.restclienttemplate;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import com.codepath.apps.restclienttemplate.models.Tweet;
 import com.loopj.android.http.JsonHttpResponseHandler;
@@ -22,13 +25,38 @@ import static com.codepath.apps.restclienttemplate.TwitterApplication.getRestCli
 public class ComposeActivity extends AppCompatActivity {
     TwitterClient client = getRestClient();
     EditText txTweet;
+    TextView charCount;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_compose);
 
         txTweet = (EditText) findViewById(R.id.txTweet);
+        charCount = (TextView) findViewById(R.id.charCount);
+        charCount.setText("140/140");
+        txTweet.addTextChangedListener(new TextWatcher()
+        {
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count)
+            {
+            }
+
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int aft)
+            {
+            }
+
+            @Override
+            public void afterTextChanged(Editable s)
+            {
+                // this will show characters remaining
+                charCount.setText(140 - s.toString().length() + "/140");
+            }
+        });
     }
+
+
 
     public void onSendTweet(View v){
         client.sendTweet(txTweet.getText().toString(), new JsonHttpResponseHandler(){

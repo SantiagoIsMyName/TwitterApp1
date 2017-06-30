@@ -49,6 +49,7 @@ public class TimeLineActivity extends AppCompatActivity {
         populateTimeline();
     }
 
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         // REQUEST_CODE is defined above
