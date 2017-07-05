@@ -12,6 +12,7 @@ import com.bumptech.glide.Glide;
 import com.codepath.apps.restclienttemplate.models.Tweet;
 
 import java.util.List;
+
 import jp.wasabeef.glide.transformations.RoundedCornersTransformation;
 
 /**
@@ -22,9 +23,17 @@ public class TweetAdapter extends RecyclerView.Adapter<TweetAdapter.ViewHolder>{
     //Pass in the tweet array
     private List<Tweet> mTweets;
     Context context;
+    private TweetsAdapterListener mListener;
+    public interface TweetSelectedListener{
+        public void onTweetSelected(Tweet tweet);
+    }
 
-    public TweetAdapter(List<Tweet> tweets){
+    public interface TweetsAdapterListener{
+        public void onItemSelected(View view, int position);
+    }
+    public TweetAdapter(List<Tweet> tweets, TweetsAdapterListener listener){
         mTweets = tweets;
+        mListener = listener;
     }
 
     @Override
@@ -64,7 +73,7 @@ public class TweetAdapter extends RecyclerView.Adapter<TweetAdapter.ViewHolder>{
         return mTweets.size();
     }
 
-    public static class ViewHolder extends RecyclerView.ViewHolder{
+    public class ViewHolder extends RecyclerView.ViewHolder{
         public ImageView ivProfileImage;
         public TextView tvUsername;
         public TextView tvBody;
@@ -79,6 +88,17 @@ public class TweetAdapter extends RecyclerView.Adapter<TweetAdapter.ViewHolder>{
             tvUsername = (TextView) itemView.findViewById(R.id.tvUsername);
             tvBody = (TextView) itemView.findViewById(R.id.tvBody);
             tvTime = (TextView) itemView.findViewById(R.id.tvTime);
+
+            itemView.setOnClickListener(new View.OnClickListener(){
+                @Override
+                public void onClick(View view){
+                    if (mListener != null){
+                        int position = getAdapterPosition();
+                        mListener.onItemSelected(view, position);
+                    }
+
+                }
+            });
 
         }
     }
