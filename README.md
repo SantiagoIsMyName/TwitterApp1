@@ -46,7 +46,7 @@ The following **additional** features are implemented:
 
 ## Video Walkthrough
 
-Here's a walkthrough of implemented user stories:
+Here's a walkthrough of implemented user stories: https://i.makeagif.com/media/7-07-2017/_Ntnju.gif
 
 <img src='https://i.makeagif.com/media/7-07-2017/_Ntnju.gif'  title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
