@@ -56,6 +56,8 @@ GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
 Describe any challenges encountered while building the app.
 
+Learning how to pass information between the fragments and the activities was a challenge. Populating the view in the Detail View was also difficult until I used Parcel.
+
 ## Open-source libraries used
 
 - [Android Async HTTP](https://github.com/loopj/android-async-http) - Simple asynchronous HTTP requests with JSON parsing
