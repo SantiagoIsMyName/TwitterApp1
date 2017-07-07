@@ -56,9 +56,16 @@ public class TweetsListFragment extends Fragment implements TweetAdapter.TweetsA
         }
     }
 
+
     @Override
     public void onItemSelected(View view, int position) {
         Tweet tweet = tweets.get(position);
         ((TweetAdapter.TweetSelectedListener) getActivity()).onTweetSelected(tweet);
+    }
+
+    @Override
+    public void onDetailView(View view, int position){
+        Tweet tweet = tweets.get(position);
+        ((TweetAdapter.TweetSelectedListener) getActivity()).displayDetail(tweet);
     }
 }

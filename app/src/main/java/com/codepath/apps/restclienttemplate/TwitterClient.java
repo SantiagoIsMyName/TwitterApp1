@@ -80,9 +80,6 @@ public class TwitterClient extends OAuthBaseClient {
         RequestParams params = new RequestParams();
         params.put("screen_name", screenName);
         client.get(apiUrl, params, handler);
-
-        // Can specify query string params directly or through RequestParams.
-        client.get(apiUrl, null, handler);
     }
 
     public void sendTweet(String message, AsyncHttpResponseHandler handler) {

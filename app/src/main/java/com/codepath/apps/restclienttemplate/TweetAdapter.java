@@ -26,11 +26,16 @@ public class TweetAdapter extends RecyclerView.Adapter<TweetAdapter.ViewHolder>{
     private TweetsAdapterListener mListener;
     public interface TweetSelectedListener{
         public void onTweetSelected(Tweet tweet);
+
+        void displayDetail(Tweet tweet);
     }
 
     public interface TweetsAdapterListener{
         public void onItemSelected(View view, int position);
+
+        void onDetailView(View view, int position);
     }
+
     public TweetAdapter(List<Tweet> tweets, TweetsAdapterListener listener){
         mTweets = tweets;
         mListener = listener;
@@ -59,7 +64,7 @@ public class TweetAdapter extends RecyclerView.Adapter<TweetAdapter.ViewHolder>{
 
         Glide.with(context)
                 .load(tweet.user.profileImageURL)
-                .bitmapTransform(new RoundedCornersTransformation(context, 25, 0))
+                .bitmapTransform(new RoundedCornersTransformation(context, 150, 0))
                 .into(holder.ivProfileImage);
 
     }
@@ -89,7 +94,8 @@ public class TweetAdapter extends RecyclerView.Adapter<TweetAdapter.ViewHolder>{
             tvBody = (TextView) itemView.findViewById(R.id.tvBody);
             tvTime = (TextView) itemView.findViewById(R.id.tvTime);
 
-            itemView.setOnClickListener(new View.OnClickListener(){
+
+            ivProfileImage.setOnClickListener(new View.OnClickListener(){
                 @Override
                 public void onClick(View view){
                     if (mListener != null){
@@ -97,6 +103,16 @@ public class TweetAdapter extends RecyclerView.Adapter<TweetAdapter.ViewHolder>{
                         mListener.onItemSelected(view, position);
                     }
 
+                }
+            });
+
+            tvBody.setOnClickListener(new View.OnClickListener(){
+                @Override
+                public void onClick(View view){
+                    if (mListener != null){
+                        int position = getAdapterPosition();
+                        mListener.onDetailView(view, position);
+                    }
                 }
             });
 

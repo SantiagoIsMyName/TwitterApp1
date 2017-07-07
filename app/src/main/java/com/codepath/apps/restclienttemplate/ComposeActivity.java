@@ -35,6 +35,7 @@ public class ComposeActivity extends AppCompatActivity {
         txTweet = (EditText) findViewById(R.id.txTweet);
         charCount = (TextView) findViewById(R.id.charCount);
         charCount.setText("140/140");
+        getSupportActionBar().setTitle("Compose");
         txTweet.addTextChangedListener(new TextWatcher()
         {
             @Override

@@ -27,6 +27,7 @@
             android:layout_toRightOf="@+id/ivProfileImage"
             android:text="TextView"
             android:textColor="@android:color/black"
+            android:textSize="18sp"
             android:textStyle="bold" />
 
         <TextView
@@ -51,13 +52,17 @@
         <TextView
             android:id="@+id/tvFollowers"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/black"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/tvFollowing"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"/>
+            android:layout_marginLeft="10dp"
+            android:textColor="@android:color/black"
+            android:textStyle="bold" />
     </LinearLayout>
 
     <FrameLayout
@@ -68,4 +73,13 @@
         android:layout_below="@+id/llCounts">
 
     </FrameLayout>
+
+    <ImageButton
+        android:id="@+id/imageButton3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/llCounts"
+        android:layout_alignParentEnd="true"
+        app:srcCompat="@drawable/ic_settings_white_24dp" />
+
 </RelativeLayout>

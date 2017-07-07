@@ -16,7 +16,10 @@
         android:id="@+id/emptySpace3"
         app:showAsAction="always" />
     <item
-        android:id="@+id/emptySpace4"
+        android:id="@+id/app_bar_search"
+        android:actionViewClass="android.widget.SearchView"
+        android:icon="@drawable/ic_search_white_24dp"
+        android:title="Search"
         app:showAsAction="always" />
     <item
         android:id="@+id/profileButton"
